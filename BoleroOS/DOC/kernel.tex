@@ -1,0 +1,126 @@
+\documentclass{report}
+
+\usepackage[T1]{fontenc}       %font
+
+
+\usepackage{ifthen}
+
+
+\newcommand{\syscall}[5]{
+\section{#1}
+#2
+
+\subsection*{Inputs}
+\begin{itemize}
+#3
+\end{itemize}
+
+%\ifthenelse{ \equal{#4}{} }{}{
+
+\subsection*{Outputs}
+\begin{itemize}
+#4
+\end{itemize}
+
+%}
+
+\subsection*{Other info}
+#5
+}
+
+
+
+\begin{document}
+
+\tableofcontents
+
+
+
+
+\chapter{Core Calls}
+
+\syscall{Exit - niy}{
+Terminates caller process.
+}{
+\item EAX - status code
+}{\item}{}
+
+\syscall{ConfigEvents}{
+Sets thread's event mask.
+}{
+\item EAX - mode
+ \begin{itemize}
+ \item EAX = 0 - get
+ \item EAX = 1 - set
+ \end{itemize}
+\item EBX = mask to load, if mode 1
+}{
+\item EBX = current event mask, if mode 0
+}{
+Only one thread may wait for each event. Follows a table for the meaning of each bit.
+\begin{tabular}{|c|l|}
+\hline
+Bit & Event\\
+\hline
+0	& Tidy and exit (equivalent to SIGTERM)\\
+\hline
+1	& KBD data available\\
+\hline
+?	& IPC request - niy\\
+\hline
+\end{tabular}
+}
+
+\syscall{WaitForEvent}{
+Waits for an event to come (returns when some event requested by ConfigEvents comes).
+}{\item}{
+\item EAX = event id
+}{
+The codes are the same as the bit numbers (not the mask, but the bit numbers) for ConfigEvents. The lower the code, the more priority an event has.
+}
+
+\syscall{GetKey}{
+Get's one key from the current thread's keyboard buffer, if there is one. Otherwise, returns with no key.
+}{\item}{
+\item EAX = Virtual Key code
+\item EBX = Translated character in Unicode. Returns -1 if not a character.
+}{
+Obs.: If thread hasn't been configured to wait for keyboard events, no key will be read.
+}
+
+
+\chapter{Provisory Calls}
+
+\syscall{GetDisplay}{
+Obtains ownership of display for caller process.
+}{
+\item EAX - address for buffer
+}{
+\item EAX - error code if CF set
+}{
+\begin{tabular}{|c|l|}
+\hline
+EAX on exit & Meaning\\
+\hline
+1	& Conflictuous request\\
+\hline
+2	& Invalid address\\
+\hline
+\end{tabular}
+}
+
+\syscall{UpDisplay}{
+Copies buffer previously set to screen. No effect if no buffer set.
+}{
+\item EAX - start\_line*80+start\_column
+\item EBX - end\_line*80+end\_column
+}{\item}{}
+
+
+
+
+\end{document}
+
+
+
+

@@ -1,0 +1,36 @@
+###########################################################
+#                                                         #
+#  BoleroOS                                               #
+#  By Joao Jeronimo - j_j_b_o_j@yahoo.com.br              #
+#                                                         #
+#  BoleroOS comes with NO WARANTY. Use at your own risk.  #
+#  In case of problem caused by Bolero, you can always    #
+#  contact Jeronimo for help, but no solution or          #
+#  assistance is warrantied.                              #
+#                                                         #
+#      Purpose: System Call trampoline.                   #
+#               This is processed at compile-time by a    #
+#               script who generates both the kernel      #
+#               trampoline and the user-mode stubs.       #
+#      History: 01/07/2008 - Created                      #
+#                                                         #
+###########################################################
+
+
+# Provisory Calls
+
+GetDisplay
+UpDisplay
+
+
+# Core calls
+
+ConfigEvents
+WaitForEvent
+GetKey
+#Exit
+
+
+# Drive-specific calls
+
+

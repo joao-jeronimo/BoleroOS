@@ -1,0 +1,270 @@
+
+
+; Table to convert scancodes to VKs
+SimpleSC2VK:
+		dw	?		; 00 - 
+		dw	1024+9	; 01 - f9
+		dw	?		; 02 - 
+		dw	1024+5	; 03 - f5
+		dw	1024+3	; 04 - f3
+		dw	1024+1	; 05 - f1
+		dw	1024+2	; 06 - f2
+		dw	1024+12	; 07 - f12
+		dw	?		; 08 - 
+		dw	1024+10	; 09 - f10
+		dw	1024+8	; 0a - f8
+		dw	1024+6	; 0b - f6
+		dw	1024+4	; 0c - f4
+		dw	48		; 0d - Tab
+		dw	0		; 0e - grave accent
+		dw	?		; 0f - 
+		dw	?		; 10 - 
+		dw	1024+28	; 11 - left Alt
+		dw	1024+24	; 12 - left Shift
+		dw	?		; 13 - 
+		dw	1024+26	; 14 - left Control
+		dw	13		; 15 - Q
+		dw	1		; 16 - 1
+		dw	?		; 17 - 
+		dw	?		; 18 - 
+		dw	?		; 19 - 
+		dw	37		; 1a - Z
+		dw	27		; 1b - S
+		dw	26		; 1c - A
+		dw	14		; 1d - W
+		dw	2		; 1e - 2
+		dw	?		; 1f - 
+		dw	?		; 20 - 
+		dw	39		; 21 - C
+		dw	38		; 22 - X
+		dw	28		; 23 - D
+		dw	15		; 24 - E
+		dw	4		; 25 - 4
+		dw	3		; 26 - 3
+		dw	?		; 27 - 
+		dw	?		; 28 - 
+		dw	47		; 29 - Space
+		dw	40		; 2a - V
+		dw	29		; 2b - F
+		dw	17		; 2c - T
+		dw	16		; 2d - R
+		dw	5		; 2e - 5
+		dw	?		; 2f - 
+		dw	?		; 30 - 
+		dw	42		; 31 - N
+		dw	41		; 32 - B
+		dw	31		; 33 - H
+		dw	30		; 34 - G
+		dw	18		; 35 - Y
+		dw	6		; 36 - 6
+		dw	?		; 37 - 
+		dw	?		; 38 - 
+		dw	?		; 39 - 
+		dw	43		; 3a - M
+		dw	32		; 3b - J
+		dw	19		; 3c - U
+		dw	7		; 3d - 7
+		dw	8		; 3e - 8
+		dw	?		; 3f - 
+		dw	?		; 40 - 
+		dw	44		; 41 - ,	(comma)
+		dw	33		; 42 - K
+		dw	20		; 43 - I
+		dw	21		; 44 - O
+		dw	10		; 45 - 0	(Zero)
+		dw	9		; 46 - 9
+		dw	?		; 47 - 
+		dw	?		; 48 - 
+		dw	45		; 49 - .	(Period)
+		dw	46		; 4a - /	(Forward Slash)
+		dw	34		; 4b - L
+		dw	35		; 4c - ;	(Semicolon)
+		dw	22		; 4d - P
+		dw	11		; 4e - -	(Dash)
+		dw	?		; 4f - 
+		dw	?		; 50 - 
+		dw	?		; 51 - 
+		dw	36		; 52 - '	(Apostrophe)
+		dw	?		; 53 - 
+		dw	23		; 54 - [	(left Square Bracket)
+		dw	12		; 55 - =	(Equals Sign)
+		dw	?		; 56 - 
+		dw	?		; 57 - 
+		dw	1024+23	; 58 - Caps Lock
+		dw	1024+25	; 59 - right Shift
+		dw	50		; 5a - Enter
+		dw	24		; 5b - ]	(right Square Bracket)
+		dw	?		; 5c - 
+		dw	25		; 5d - \	(Back Slash)
+		dw	?		; 5e - 
+		dw	?		; 5f - 
+		dw	?		; 60 - 
+		dw	?		; 61 - 
+		dw	?		; 62 - 
+		dw	?		; 63 - 
+		dw	?		; 64 - 
+		dw	?		; 65 - 
+		dw	49		; 66 - Backspace
+		dw	?		; 67 - 
+		dw	?		; 68 - 
+		dw	57		; 69 - keypad 1
+		dw	?		; 6a - 
+		dw	54		; 6b - keypad 4
+		dw	51		; 6c - keypad 7
+		dw	?		; 6d - 
+		dw	?		; 6e - 
+		dw	?		; 6f - 
+		dw	60		; 70 - keypad 0
+		dw	61		; 71 - keypad .
+		dw	58		; 72 - keypad 2
+		dw	55		; 73 - keypad 5
+		dw	56		; 74 - keypad 6
+		dw	52		; 75 - keypad 8
+		dw	1024+0	; 76 - Escape
+		dw	1024+22	; 77 - Number Lock
+		dw	1024+11	; 78 - f11
+		dw	63		; 79 - keypad +
+		dw	59		; 7a - keypad 3
+		dw	64		; 7b - keypad -
+		dw	65		; 7c - keypad *
+		dw	53		; 7d - keypad 9
+		dw	1024+14	; 7e - Scroll Lock
+		dw	?		; 7f - 
+		dw	?		; 80 - 
+		dw	?		; 81 - 
+		dw	?		; 82 - 
+		dw	1024+7	; 83 - f7
+
+
+EscapedSC2VK:
+		dw	?		; 00 - 
+		dw	?		; 01 - 
+		dw	?		; 02 - 
+		dw	?		; 03 - 
+		dw	?		; 04 - 
+		dw	?		; 05 - 
+		dw	?		; 06 - 
+		dw	?		; 07 - 
+		dw	?		; 08 - 
+		dw	?		; 09 - 
+		dw	?		; 0a - 
+		dw	?		; 0b - 
+		dw	?		; 0c - 
+		dw	?		; 0d - 
+		dw	?		; 0e - 
+		dw	?		; 0f - 
+		dw	?		; 10 - 
+		dw	1024+29	; 11 - right Alt
+		dw	?		; 12 - 
+		dw	?		; 13 - 
+		dw	1024+27	; 14 - right Control
+		dw	?		; 15 - 
+		dw	?		; 16 - 
+		dw	?		; 17 - 
+		dw	?		; 18 - 
+		dw	?		; 19 - 
+		dw	?		; 1a - 
+		dw	?		; 1b - 
+		dw	?		; 1c - 
+		dw	?		; 1d - 
+		dw	?		; 1e - 
+		dw	?		; 1f - left Gui		(????? Win key ?????)
+		dw	?		; 20 - 
+		dw	?		; 21 - 
+		dw	?		; 22 - 
+		dw	?		; 23 - 
+		dw	?		; 24 - 
+		dw	?		; 25 - 
+		dw	?		; 26 - 
+		dw	?		; 27 - right Gui	(????? Win key ?????)
+		dw	?		; 28 - 
+		dw	?		; 29 - 
+		dw	?		; 2a - 
+		dw	?		; 2b - 
+		dw	?		; 2c - 
+		dw	?		; 2d - 
+		dw	?		; 2e - 
+		dw	?		; 2f - Apps			(????? No Guess ?????)
+		dw	?		; 30 - 
+		dw	?		; 31 - 
+		dw	?		; 32 - 
+		dw	?		; 33 - 
+		dw	?		; 34 - 
+		dw	?		; 35 - 
+		dw	?		; 36 - 
+		dw	?		; 37 - 
+		dw	?		; 38 - 
+		dw	?		; 39 - 
+		dw	?		; 3a - 
+		dw	?		; 3b - 
+		dw	?		; 3c - 
+		dw	?		; 3d - 
+		dw	?		; 3e - 
+		dw	?		; 3f - 
+		dw	?		; 40 - 
+		dw	?		; 41 - 
+		dw	?		; 42 - 
+		dw	?		; 43 - 
+		dw	?		; 44 - 
+		dw	?		; 45 - 
+		dw	?		; 46 - 
+		dw	?		; 47 - 
+		dw	?		; 48 - 
+		dw	?		; 49 - 
+		dw	66		; 4a - keypad /
+		dw	?		; 4b - 
+		dw	?		; 4c - 
+		dw	?		; 4d - 
+		dw	?		; 4e - 
+		dw	?		; 4f - 
+		dw	?		; 50 - 
+		dw	?		; 51 - 
+		dw	?		; 52 - 
+		dw	?		; 53 - 
+		dw	?		; 54 - 
+		dw	?		; 55 - 
+		dw	?		; 56 - 
+		dw	?		; 57 - 
+		dw	?		; 58 - 
+		dw	?		; 59 - 
+		dw	62		; 5a - keypad Enter
+		dw	?		; 5b - 
+		dw	?		; 5c - 
+		dw	?		; 5d - 
+		dw	?		; 5e - 
+		dw	?		; 5f - 
+		dw	?		; 60 - 
+		dw	?		; 61 - 
+		dw	?		; 62 - 
+		dw	?		; 63 - 
+		dw	?		; 64 - 
+		dw	?		; 65 - 
+		dw	?		; 66 - 
+		dw	?		; 67 - 
+		dw	?		; 68 - 
+		dw	1024+20	; 69 - End
+		dw	?		; 6a - 
+		dw	68		; 6b - Left Arrow
+		dw	1024+17	; 6c - Home
+		dw	?		; 6d - 
+		dw	?		; 6e - 
+		dw	?		; 6f - 
+		dw	1024+16	; 70 - Insert
+		dw	1024+19	; 71 - Delete
+		dw	69		; 72 - Down Arrow
+		dw	?		; 73 - 
+		dw	70		; 74 - Right Arrow
+		dw	67		; 75 - Up Arrow
+		dw	?		; 76 - 
+		dw	?		; 77 - 
+		dw	?		; 78 - 
+		dw	?		; 79 - 
+		dw	1024+21	; 7a - Page Down
+		dw	?		; 7b - 
+		dw	?		; 7c - 
+		dw	1024+18	; 7d - Page Up
+		dw	?		; 7e - 
+		dw	?		; 7f - 
+
+
+

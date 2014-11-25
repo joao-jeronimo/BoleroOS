@@ -1,0 +1,38 @@
+[FASM] BoleroOS
+
+
+Titulo do Projecto: BoleroOS
+Última Versão: N/A
+Líder do Projecto: João Jerónimo
+Membros Actuais do Projecto:
+    * João Jerónimo
+
+Descrição do Projecto: Sistema operativo símples, escrito completamente em Assembly do FASM. O ambiente nativo para o kernel e as aplicações será o Modo Protegido de 32 bits do x86 (assim, será necessário um 386 ou mais recente). Multi-tarefa antecipada. Processos com múltiplas threads. Kernel monolítico. Poderá ter no futuro um interface gráfico gerido directamente pelo kernel.
+
+Estado actual (aka coisas feitas):
+ * Inicialização básica do processador.
+ * Usermode
+ * Suporte à criação de processos Usermode a partir de buffers em memória.
+ * Duas system calls [provisórias] implementadas.
+ * Suporte básico a VGA (a acesso ao mesmo a partir do Usermode, por intermédio das system calls referidas).
+ * Suporte incipiente para terminal emulado.
+
+Mais coisas:
+
+Iniciei este projecto para aprender sobre sistemas operativos. Acho o tema interessante, mas depois de ter passado dois anos a "pastelar" devido à pouca experiência (inconfessada) em projectos grandes, decidi-me a seguir objectivos mais "modestos", antes de avançar para algo mais complicado.
+
+O SO não terá nada de muito inovador. Na verdade, inspirei-me inicialmente no MenuetOS[1], no sentido em que não quero uma API user<->kernel muito estruturada; e também no sentido em que decidi implementar tudo (tirando o boot loader) em ASM e em que quero uma GUI gerida directamente pelo kernel.
+
+Divirjo do Menuet no sentido em que vou utilizar as features do FASM[2] até à exaustão, sempre que tal ajude a simplificar a legibilidade e a manutenção do código. Também quero suporte nativo e usável a aplicações CLI (i.e. linha de comandos), que não são fáceis de ter no Menuet.
+Haverá um "console server", o que nos coloca algo numa posição oposta ao Unix (em que o terminal de texto e gerido pelo kernel e a GUI é gerida por um programa normal, o servidor X). O console server é responsável por apresentar o texto que os programas CLI "querem" escrever no ecrã, seja directamente na placa gráfica, seja numa janela do interface gráfico (a ideia é não ter de re-escrever as eventuais aplicações CLI quando/se a GUI for implementada).
+
+Estou actualmente a implementar a interface para ler texto do teclado, bem como o respectivo driver. Só tenciono lançar código quando tiver suporte para uma linha de comandos funcional.
+
+E sim, podem dar sugestões. Mas por favor, tenham juízo! Não me peçam para implementar suporte para ReiserFS e coisas parecidas (aliás, a palavra filesystem está proibida durante pelo menos 6 meses, se não for mais).
+Pode ser até que me farte num dia ou noutro.
+
+[1] - www.menuetos.org
+[2] - flatassembler.net
+
+---
+João Jerónimo
