@@ -12,7 +12,7 @@ if [ $? != 0 ]; then
  exit
 fi
 
-../support/fasm/fasm BOLERO.ASM BOLERO.IMG
+../support/fasm/fasm MAIN.ASM BOLERO.IMG
 if [ $? != 0 ]; then
  exit
 fi
@@ -20,16 +20,18 @@ fi
 
 echo "Building floppy.img"
 
-export MTOOLSRC=./mtools.conf
+export MTOOLSRC="../mtools.conf"
 
+# Creating floppy image from scratch:
 dd if=/dev/zero of=floppy.img count=2880 2> /dev/null
 mformat -t 80 -h 2 -n 18 f: > /dev/null
 
-
-
-#./insboot -o floppy.img BOOTSECT.IMG > /dev/null
+#  Writing bootsector (FAT superblock for floppies is correct
+# in BOOTSECT.IMG file, so we just low-level copy it into the
+# image with conv=notrunc):
 dd if=BOOTSECT.IMG of=floppy.img conv=notrunc
 
+# Copy needed files...
 mcopy -o BOOTER.IMG f: > /dev/null
 mcopy -o BOOTER.CFG f: > /dev/null
 mcopy -o BOLERO.IMG f: > /dev/null
