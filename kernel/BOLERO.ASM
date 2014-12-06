@@ -77,8 +77,8 @@ include "LIB.ASM"
 ; Temporary tests
 ;include "TESTS/MATEST.ASM"
 prog1:
-file "TESTS/SHELL.EXE"
-;file "TESTS/PROG1.EXE"
+;file "TESTS/SHELL.EXE"
+file "TESTS/PROG1.EXE"
  .size = $-prog1
 
 
