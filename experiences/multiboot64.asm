@@ -17,12 +17,88 @@ _start:
         dd _end                     ; bss_end_addr 
         dd Kernel_Start             ; entry 
 
+hellomsg db "Hello...                                                                       ", 0
+hallomsg db "  LONG MODE???                                                                 ", 0
+
+
 Kernel_Start:
-    mov     eax, 'BBBB'
-    mov     [0xB8000], eax
+        mov     esp, Kernel_Stack
+        
+        ; Clear screen...
+        mov     edi, 0xB8000
+        mov     eax, 0
+        mov     ecx, 80*25
+        rep stosw
 
-    jmp $
+        mov     eax, 'PCMC'
+        mov     [0xB8000], eax
+        
+        mov     esi, hellomsg
+        call    print
+        ; INIT DONE!!!!!
+        
+        
+        ; Trying to enter long mode.....
+        ; Testing CPUID...
+        pushfd
+        pop     eax
+        mov     ecx, eax
+        xor     eax, (1 shl 21)
+        push    eax
+        popfd
+        pushfd
+        pop     eax
+        cmp     eax, ecx
+        je      .nolongmode
+        
+        ; CPUID ok...
+        mov     eax, '1'
+        mov     [hallomsg+30], al
+        mov     esi, hallomsg
+        call    print
+        
+        ; Testing 
 
+
+;use64
+;        mov     rax, 'LCMCLCMC'
+;        mov     [0xB8000+80*7*2], rax
+
+
+        jmp $
+
+  .nolongmode:
+        mov     eax, 'F'
+        mov     [hallomsg+30], al
+        mov     esi, hallomsg
+        call    print
+        jmp $
+
+
+
+
+
+; Print ESI contents
+print:
+        mov     edi, [.cursor_ptr]
+        mov     eax, 0x00000700
+        cld
+ .lp:
+        mov     al, byte [esi]
+        inc     esi
+        stosw
+    
+        cmp     al, 0x0A
+        jne     @f
+  @@:
+        
+        cmp     al, 0
+        jne     .lp
+        
+        mov     [.cursor_ptr], edi
+    
+        ret
+.cursor_ptr dd 0xB8000+(80)*2
 
 
 _end_data:
