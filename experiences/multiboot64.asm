@@ -57,7 +57,30 @@ Kernel_Start:
         mov     esi, hallomsg
         call    print
         
-        ; Testing 
+        ; See if long-mode is available:
+        mov eax, 0x80000000
+        cpuid
+        cmp eax, 0x80000001     ; See if function 0x80000001 exists...
+        jb .nolongmode
+        mov eax, 0x80000001
+        cpuid
+        test edx, 1 shl 29       ; See if processor has long mode...
+        jz .nolongmode
+        
+        ; LongMode ok
+        mov     eax, '2'
+        mov     [hallomsg+30], al
+        mov     esi, hallomsg
+        call    print
+        
+        ; If we had paging enabled in 32-bit Protected Mode,
+        ; we would have to disable it here...
+        ;mov eax, cr0
+        ;and eax, not (1 shl 31)
+        ;mov cr0, eax
+        
+        ; Setting up paging...
+        
 
 
 ;use64
