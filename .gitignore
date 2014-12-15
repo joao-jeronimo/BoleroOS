@@ -5,3 +5,5 @@ experiences/pendrv.img
 experiences/mygrub.img
 experiences/multiboot64.bin
 experiences/rebuild_pen
+support/bochs/
+experiences/bochs.log
